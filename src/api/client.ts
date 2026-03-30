@@ -3,9 +3,7 @@ import { Platform } from 'react-native';
 
 const getBaseUrl = () => {
   if (process.env.EXPO_PUBLIC_API_URL) return process.env.EXPO_PUBLIC_API_URL;
-  // Android emulator uses 10.0.2.2 to reach host machine's localhost
-  const host = Platform.OS === 'android' ? '10.0.2.2' : 'localhost';
-  return `http://${host}:3000/api`;
+  return 'https://network-back-test-production.up.railway.app/api';
 };
 
 const BASE_URL = getBaseUrl();
