@@ -1,16 +1,12 @@
 import axios, { AxiosError } from 'axios';
-import { Platform } from 'react-native';
 
-const getBaseUrl = () => {
-  if (process.env.EXPO_PUBLIC_API_URL) return process.env.EXPO_PUBLIC_API_URL;
-  return 'https://network-back-test-production.up.railway.app/api';
-};
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'https://network-back-test-production.up.railway.app/api';
 
-const BASE_URL = getBaseUrl();
+console.log('[API] Base URL:', BASE_URL);
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
-  timeout: 15000,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
   },
